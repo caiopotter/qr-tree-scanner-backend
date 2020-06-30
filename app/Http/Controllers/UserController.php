@@ -7,17 +7,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function users(){
-        return User::all();
-    }
-
-    function register(Request $request){
-        $user = ([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
-        User::create($user);
-        return 'ok';
+    public function getUserDiscoveredTrees(Request $request){
+        $user = User::find($request)->first();
+        return $user->trees()->get();
     }
 }
