@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function trees()
+    {
+        return $this->belongsToMany('App\Tree', 'users_trees', 'user_id', 'tree_id');
+    }
 }
