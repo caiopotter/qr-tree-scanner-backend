@@ -19,4 +19,9 @@ class Tree extends Model
     {
         return $this->hasOne('App\QRCode');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'tree_id');
+    }
 }

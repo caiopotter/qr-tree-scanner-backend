@@ -11,4 +11,9 @@ class UserController extends Controller
         $user = User::find($request)->first();
         return $user->trees()->get();
     }
+
+    public function getUserComments(Request $request){
+        $user = User::find($request)->first();
+        return $user->comments()->get();
+    }
 }

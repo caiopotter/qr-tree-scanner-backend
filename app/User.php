@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Tree', 'users_trees', 'user_id', 'tree_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment', 'user_id');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\QRCode;
 use App\Tree;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,6 +44,15 @@ class TreeController extends Controller
         $tree->users()->attach($request->userId);
 
         return 'Árvore descoberta com sucesso';
+    }
+
+    public function getTreeComments(Request $request){
+        $tree = Tree::find($request->treeId);
+        $treeComments = $tree->comments()->get();
+        foreach($treeComments as $comment){
+            $comment->user = User::find($comment->user_id, 'name');
+        }
+        return $treeComments;
     }
 
 }
