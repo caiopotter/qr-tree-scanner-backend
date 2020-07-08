@@ -7,6 +7,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('tree/user', 'TreeController@setUserDiscoveredTree');
     Route::get('user/trees', 'userController@getUserDiscoveredTrees');
     Route::post('tree/comment', 'CommentController@addTreeComment');
+    Route::delete('tree/comment/{comment}', 'CommentController@deleteTreeComment');
 });
 
 Route::get('trees-number', 'TreeController@getTrees');

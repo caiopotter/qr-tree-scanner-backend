@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
-use App\User;
-use App\Tree;
 
 class CommentController extends Controller
 {
@@ -18,5 +16,10 @@ class CommentController extends Controller
         $comment = Comment::create($commentData);
         
         return $comment;
+    }
+
+    public function deleteTreeComment($comment){
+        Comment::destroy($comment);
+        return response()->json('deletado com sucesso', 200);
     }
 }
