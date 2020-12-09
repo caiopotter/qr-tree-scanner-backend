@@ -15,6 +15,11 @@ class Tree extends Model
         return $this->belongsToMany('App\User', 'users_trees', 'tree_id', 'user_id');
     }
 
+    public function parks()
+    {
+        return $this->belongsToMany('App\Park', 'parks_trees', 'tree_id', 'park_id')->withPivot(['map_latitude', 'map_longitude']);
+    }
+
     public function code()
     {
         return $this->hasOne('App\QRCode');

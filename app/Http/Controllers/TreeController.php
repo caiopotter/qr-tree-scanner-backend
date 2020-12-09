@@ -26,11 +26,9 @@ class TreeController extends Controller
         return response()->json($tree, 200);
     }
 
-    public function getTrees()
+    public function getTreesNumber()
     {
         $treesNumber = Tree::all()->count();
-        
-
         return response()->json($treesNumber, 200);
     }
 

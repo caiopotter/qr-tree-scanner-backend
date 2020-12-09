@@ -10,10 +10,17 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::delete('tree/comment/{comment}', 'CommentController@deleteTreeComment');
 });
 
-Route::get('trees-number', 'TreeController@getTrees');
+Route::get('trees-number', 'TreeController@getTreesNumber');
 Route::get('code', 'TreeController@getTreeByCode');
 Route::get('tree/comments', 'TreeController@getTreeComments');
 Route::get('user/comments', 'UserController@getUserComments');
+Route::get('coords', 'TreeController@getCoord');
+
+
+Route::group(['prefix' => 'park'], function () {
+    Route::get('trees/{park}', 'ParkController@getParkTrees');
+    Route::get('/', 'ParkController@getParks');
+});
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
