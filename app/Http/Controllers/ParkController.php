@@ -8,7 +8,7 @@ class ParkController extends Controller
 {
     public function getParks()
     {
-        $parks = Park::all();
+        $parks = Park::withCount('trees')->get();
         return response()->json($parks, 200);
     }
 
