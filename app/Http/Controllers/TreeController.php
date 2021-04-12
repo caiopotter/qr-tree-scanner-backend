@@ -53,4 +53,10 @@ class TreeController extends Controller
         return $treeComments;
     }
 
+    public function getTreeShortFeatures(Request $request){
+        $tree = Tree::find($request->treeId);
+        $treeShortFeatures = $tree->shortFeatures()->get();
+        return $treeShortFeatures;
+    }
+
 }

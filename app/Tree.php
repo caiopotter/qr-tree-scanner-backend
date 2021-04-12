@@ -29,4 +29,9 @@ class Tree extends Model
     {
         return $this->hasMany('App\Comment', 'tree_id');
     }
+
+    public function shortFeatures()
+    {
+        return $this->hasMany('App\TreeShortFeature', 'tree_id');
+    }
 }
