@@ -12,6 +12,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 Route::get('trees-number', 'TreeController@getTreesNumber');
 Route::get('code', 'TreeController@getTreeByCode');
+Route::get('tree/short-features', 'TreeController@getTreeShortFeatures');
 Route::get('tree/comments', 'TreeController@getTreeComments');
 Route::get('user/comments', 'UserController@getUserComments');
 Route::get('coords', 'TreeController@getCoord');
