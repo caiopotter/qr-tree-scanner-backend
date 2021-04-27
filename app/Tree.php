@@ -12,7 +12,7 @@ class Tree extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'users_trees', 'tree_id', 'user_id');
+        return $this->belongsToMany('App\User', 'users_trees', 'tree_id', 'user_id')->withTimestamps();
     }
 
     public function parks()

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function getUserDiscoveredTrees(Request $request){
         $user = User::find($request)->first();
-        return $user->trees()->get();
+        return $user->trees()->withTimestamps()->get();
     }
 
     public function getUserComments(Request $request){
