@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\QRCode;
 use App\Tree;
 use App\User;
+use App\TreePicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class TreeController extends Controller
-{
-    public function registerTree(Request $request)
-    {
+class TreeController extends Controller{
+    public function registerTree(Request $request){
         $treeData = ([
             'common_name' => $request->common_name,
             'scientific_name' => $request->scientific_name,
@@ -26,8 +25,7 @@ class TreeController extends Controller
         return response()->json($tree, 200);
     }
 
-    public function getTreesNumber()
-    {
+    public function getTreesNumber(){
         $treesNumber = Tree::all()->count();
         return response()->json($treesNumber, 200);
     }
@@ -57,6 +55,15 @@ class TreeController extends Controller
         $tree = Tree::find($request->treeId);
         $treeShortFeatures = $tree->shortFeatures()->get();
         return $treeShortFeatures;
+    }
+
+    public function getTreePictures(Request $request){
+        $treesPictures = TreePicture::where('tree_id', $request->treeId)->get();
+        return response()->json($treesPictures, 200);
+    }
+
+    public function getTreesCoverPictures(){
+        return response()->json(DB::table('tree_pictures')->where('is_cover', 1)->get(), 200);
     }
 
 }

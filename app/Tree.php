@@ -34,4 +34,9 @@ class Tree extends Model
     {
         return $this->hasMany('App\TreeShortFeature', 'tree_id');
     }
+
+    public function pictures()
+    {
+        return $this->hasMany('App\TreePicture', 'tree_id');
+    }
 }

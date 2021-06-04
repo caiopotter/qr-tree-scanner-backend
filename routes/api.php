@@ -10,6 +10,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::delete('tree/comment/{comment}', 'CommentController@deleteTreeComment');
 });
 
+Route::get('tree-pictures', 'TreeController@getTreePictures');
+Route::get('trees-cover-pictures', 'TreeController@getTreesCoverPictures');
 Route::get('trees-number', 'TreeController@getTreesNumber');
 Route::get('code', 'TreeController@getTreeByCode');
 Route::get('tree/short-features', 'TreeController@getTreeShortFeatures');
