@@ -14,8 +14,8 @@ class AddParksInfo extends Migration
     public function up()
     {
         Schema::table('parks', function (Blueprint $table) {
-            $table->text('address');
-            $table->text('about');
+            $table->text('address')->nullable();
+            $table->text('about')->nullable();
         });
     }
 
