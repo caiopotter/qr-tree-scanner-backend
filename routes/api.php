@@ -19,6 +19,11 @@ Route::get('tree/comments', 'TreeController@getTreeComments');
 Route::get('user/comments', 'UserController@getUserComments');
 Route::get('coords', 'TreeController@getCoord');
 
+Route::get('test', function () {
+    return 'Hello World2';
+});
+
+Route::post('signup2', 'AuthController@signup');
 
 Route::group(['prefix' => 'park'], function () {
     Route::get('trees/{park}', 'ParkController@getParkTrees');
